@@ -37,12 +37,3 @@ jobs:
           name: Mochawesome HTML Report
           path: cypress/reports/html   
        
-
-      - name: Slack Notification
-        if: always()
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
-          SLACK_MESSAGE: 'Test Automation Report https://github.com/anishcb/crowdbotics_automation/actions/runs/${{github.run_id}}'
-          SLACK_TITLE: Automation Test Report
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }} 
