@@ -1,0 +1,14 @@
+{
+    "title": "string",
+    "description": "string",
+    "milestone": "string",
+    "task": "string",
+    "reporter": {
+      "first_name": "string",
+      "last_name": "string",
+      "email": "user@example.com",
+      "hide_errors": true,
+      "hide_success": false,
+      "organization": {}
+    }
+  }

@@ -1,0 +1,11 @@
+{
+    "project": 53225,
+    "amount": "500.00",
+    "work_statement": "2957,2967",
+    "title": "Purchase Block For 53225",
+    "paymentproposals": [
+        2968
+    ],
+    "esignature": "sneh1",
+    "payment_method": "ach"
+}

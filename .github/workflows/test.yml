@@ -1,0 +1,48 @@
+name: Cypress Tests
+
+on:
+  push:
+    branches:
+      - master # Change this to your main branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.17.0' # Use the Node.js version you need for your project
+
+      - name: Uninstall dependencies
+        run: npm uninstall cypress
+
+      - name: Install dependencies
+        run: npm install cypress --save-dev
+
+      - name: Make cypress-parallel executable
+        run: chmod +x node_modules/.bin/cypress-parallel
+
+      - name: Run Cypress tests
+        run: npx cypress run   # Adjust this to your Cypress test run command
+
+      - name: Cypress Test Report
+        if: always()
+        uses: actions/upload-artifact@v3 
+        with:
+          name: Mochawesome HTML Report
+          path: cypress/reports/html   
+       
+
+      - name: Slack Notification
+        if: always()
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
+          SLACK_MESSAGE: 'Test Automation Report https://github.com/anishcb/crowdbotics_automation/actions/runs/${{github.run_id}}'
+          SLACK_TITLE: Automation Test Report
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }} 
