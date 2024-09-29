@@ -10,7 +10,6 @@ let app_id;
 
 describe("Dashboard Page", () => {
     const app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
-    const username = 'cbrahul' + (Math.random() + 1).toString(36).substring(7);
     it('Create App Flow', () => {
         doDashboardLogin().then((response) => {
             cy.log("login response", response.body.key)
