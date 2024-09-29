@@ -4,13 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:setting": "npx cypress run --spec cypress/integration/api/tests/SettingsPageTest.js",
     "test:all": "npx cypress run --spec cypress/integration/api/tests/SettingsPageTest.js,cypress/integration/api/tests/PrdPageTest.js,cypress/integration/api/tests/ConnectorsPageTest.js,cypress/integration/api/tests/CatalogPageTest.js,cypress/integration/api/tests/Taskstest.js,cypress/integration/api/tests/dashboardtest.js",
-    "test:prd": "npx cypress run --spec cypress/integration/api/tests/PrdPageTest.js",
     "test:login": "npx cypress run --spec cypress/integration/api/tests/logintest.js",
     "test:settingsa": "npx cypress run --spec cypress/integration/api/tests/*.js --env grep=Settings",
     "test:dashboard": "npx cypress run --spec cypress/integration/api/tests/dashboardtest.js",
-    "test:tasks": "npx cypress run --spec cypress/integration/api/tests/*.js --env grep=Tasks",
     "merge-reports": "mochawesome-merge cypress/integration/api/tests/*.js > cypress/reports/mergedReport.json && marge cypress/reports/mergedReport.json -f report -o cypress/reports",
     "test": "npx cypress run",
     "cy:parallel": "cypress-parallel -d cypress/integration/api/tests/ --threads 13 -s test && npm run report:merge && npm run report:generate",
